@@ -1,0 +1,5 @@
+*.pyc
+.idea/
+constants.py
+/env
+__pycache__/
