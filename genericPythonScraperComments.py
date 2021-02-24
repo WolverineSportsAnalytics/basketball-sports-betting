@@ -20,31 +20,31 @@ def myScraper2(soup):
     To parse the comments
     https://stackoverflow.com/questions/33138937/how-to-find-all-comments-with-beautiful-soup
     '''
+    table = []
     for comments in soup.findAll(text=lambda text:isinstance(text, Comment)):
         comments.extract()
         commentsoup = BeautifulSoup(comments, 'html.parser')
-        table = commentsoup.find('div', {'id': 'div_per_minute'})
-        if table:
-            # prints out the right table
-            print(table)
+        commented_table = commentsoup.find('div', {'id': 'div_per_minute'})
+        if commented_table:
+            # sets the right table
+            table = commented_table
     
-    # #find the id of the table you're trying to scrape and insert it below
+    #find the id of the table you're trying to scrape and insert it below
+    rows = table.find_all('tr')
     
-
-    # rows = table.find_all('tr')
-    
-    # for row in rows[1:]:
+    for row in rows[1:]:
         
-    #     columns = row.find_all('td')
+        columns = row.find_all('td')
+        print(columns)
         
-    #     '''
+        '''
         
-    #     INSERT YOUR CODE HERE
+        INSERT YOUR CODE HERE
         
-    #     '''
+        '''
         
-    #     inserts = []
-    #     statement = "" + percentS_Creater(inserts)
+        inserts = []
+        statement = "" + percentS_Creater(inserts)
         
         
 
